@@ -8,4 +8,7 @@ return {
 
     -- copilot
     "github/copilot.vim",
+
+    -- plenary
+    "nvim-lua/plenary.nvim",
 }
