@@ -111,11 +111,11 @@ return {
     --   end,
     -- })
     --
-    -- -- configure prisma orm server
-    -- lspconfig["prismals"].setup({
-    --   capabilities = capabilities,
-    --   on_attach = on_attach,
-    -- })
+    -- configure rust server
+    lspconfig["rust-analyzer"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
     --
     -- -- configure graphql language server
     -- lspconfig["graphql"].setup({
