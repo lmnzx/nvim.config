@@ -1,5 +1,5 @@
 return {
-  "glepnir/lspsaga.nvim",
+	"glepnir/lspsaga.nvim",
 	lazy = false,
 	config = function()
 		require("lspsaga").setup({
@@ -15,7 +15,10 @@ return {
 			},
 			symbol_in_winbar = {
 				enable = false,
-			}
+			},
+			ui = {
+				code_action = "",
+			},
 		})
 	end,
 	dependencies = {

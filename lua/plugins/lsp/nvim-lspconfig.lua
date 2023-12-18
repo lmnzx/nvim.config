@@ -83,17 +83,69 @@ local config = function()
 		},
 	})
 
+	-- c++
+	lspconfig.clangd.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		cmd = {
+			"clangd",
+			"--offset-encoding=utf-16",
+		},
+	})
+
+	-- docker
+	lspconfig.dockerls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+
+	-- zig
+	lspconfig.zls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+
+	-- ocaml
+	lspconfig.ocamllsp.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		cmd = { "ocamllsp" },
+		filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
+		root_dir = lspconfig.util.root_pattern(
+			"*.opam",
+			"esy.json",
+			"package.json",
+			".git",
+			"dune-project",
+			"dune-workspace"
+		),
+	})
+
+	-- json
+	lspconfig.jsonls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+
 	local luacheck = require("efmls-configs.linters.luacheck")
 	local stylua = require("efmls-configs.formatters.stylua")
 	local rufflinter = require("efmls-configs.linters.ruff")
 	local ruffformater = require("efmls-configs.formatters.ruff")
+	-- local ocamlformat = require("efmls-configs.formatters.ocamlformat")
+	local clangformat = require("efmls-configs.formatters.clang_format")
 
 	-- configure efm server
 	lspconfig.efm.setup({
 		filetypes = {
 			"lua",
 			"python",
-			"rust"
+			"rust",
+			"cpp",
+			"dockerfile",
+			"c",
+			"zig",
+			"json",
+			"ocaml",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -107,6 +159,9 @@ local config = function()
 			languages = {
 				lua = { luacheck, stylua },
 				python = { rufflinter, ruffformater },
+				-- ocaml = { ocamlformat },
+				cpp = { clangformat },
+				c = { clangformat },
 			},
 		},
 	})
