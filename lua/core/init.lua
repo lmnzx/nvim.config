@@ -24,14 +24,14 @@ opt.backspace = "indent,eol,start"
 opt.mouse = "a"
 
 -- keep signcolumn on by default
-opt.signcolumn = 'yes'
+opt.signcolumn = "yes"
 
 -- decrease update time
 opt.updatetime = 250
 opt.timeoutlen = 300
 
 -- better completion experience
-opt.completeopt = 'menuone,noselect'
+opt.completeopt = "menuone,noselect"
 
 -- terminal colors
 opt.termguicolors = true

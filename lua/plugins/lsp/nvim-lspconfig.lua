@@ -22,13 +22,12 @@ local config = function()
 		vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 		vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
 		vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
-		vim.keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-		vim.keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
+		vim.keymap.set("n", "<leader>d", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
+		vim.keymap.set("n", "<leader>dc", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
 		vim.keymap.set("n", "<leader>pd", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 		vim.keymap.set("n", "<leader>nd", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 		vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
 		vim.keymap.set("n", "<leader>lo", "<cmd>LSoutlineToggle<CR>", opts)
-		vim.keymap.set("n", "<C-`>", "<cmd>Lspsaga term_toggle<CR>", opts)
 	end
 
 	-- lua
@@ -110,7 +109,7 @@ local config = function()
 		capabilities = capabilities,
 		on_attach = on_attach,
 		cmd = { "ocamllsp" },
-		filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
+		filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune", "re" },
 		root_dir = lspconfig.util.root_pattern(
 			"*.opam",
 			"esy.json",
@@ -177,7 +176,7 @@ local config = function()
 				return
 			end
 
-			vim.lsp.buf.format({ name = "efm" })
+			vim.lsp.buf.format({ name = "efm", async = true })
 		end,
 	})
 end
