@@ -1,14 +1,16 @@
 return {
-    -- git related plugin
-    "tpope/vim-fugitive",
-    "tpope/vim-rhubarb",
+	-- git related plugin
+	"tpope/vim-fugitive",
+	"tpope/vim-rhubarb",
 
-    -- detect tabstop and shistwidth automatically
-    "tpope/vim-sleuth",
+	-- detect tabstop and shistwidth automatically
+	"tpope/vim-sleuth",
 
-    -- copilot
-    "github/copilot.vim",
+	-- copilot
+	"github/copilot.vim",
 
-    -- plenary
-    "nvim-lua/plenary.nvim",
+	"danielo515/nvim-treesitter-reason",
+
+	-- plenary
+	"nvim-lua/plenary.nvim",
 }

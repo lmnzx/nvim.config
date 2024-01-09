@@ -130,7 +130,10 @@ local config = function()
 	local stylua = require("efmls-configs.formatters.stylua")
 	local rufflinter = require("efmls-configs.linters.ruff")
 	local ruffformater = require("efmls-configs.formatters.ruff")
-	-- local ocamlformat = require("efmls-configs.formatters.ocamlformat")
+	local ocamlformat = {
+		formatCommand = "dune fmt",
+		formatStdin = true,
+	}
 	local clangformat = require("efmls-configs.formatters.clang_format")
 
 	-- configure efm server
@@ -145,6 +148,7 @@ local config = function()
 			"zig",
 			"json",
 			"ocaml",
+			"re",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -176,7 +180,7 @@ local config = function()
 				return
 			end
 
-			vim.lsp.buf.format({ name = "efm", async = true })
+			vim.lsp.buf.format({ name = "efm", async = false })
 		end,
 	})
 end

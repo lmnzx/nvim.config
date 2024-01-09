@@ -15,6 +15,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("core")
+require("core.reason")
 require("lazy").setup({ { import = "plugins" }, { import = "plugins.lsp" } }, {
 	ui = {
 		icons = {
