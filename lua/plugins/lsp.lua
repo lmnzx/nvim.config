@@ -70,6 +70,54 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
+    -- configure ocaml language server
+    lspconfig["ocamllsp"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure rust language server
+    lspconfig["rust_analyzer"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      root_dir = lspconfig.util.root_pattern("Cargo.toml"),
+      settings = {
+        ["rust-analyzer"] = {
+          cargo = {
+            allFeatures = true,
+          },
+        },
+      },
+    })
+
+    -- configure c/c++ language server
+    lspconfig["clangd"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      cmd = {
+        "clangd",
+        "--offset-encoding=utf-16",
+      },
+    })
+
+    -- dockerfile language server
+    lspconfig["dockerls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure zig language server
+    lspconfig["zls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure json language server
+    lspconfig["jsonls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,
