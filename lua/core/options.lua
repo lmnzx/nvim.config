@@ -14,3 +14,4 @@ vim.opt.clipboard:append("unnamedplus")
 vim.opt.swapfile = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.scrolloff = 10

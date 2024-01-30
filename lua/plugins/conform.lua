@@ -7,6 +7,9 @@ return {
         ocaml = { "ocamlformat" },
         cpp = { "clang-format" },
         c = { "clang-format" },
+        reason = { "ocamformat" },
+        gleam = { "gleam" },
+        typescript = { "biome" },
       },
       format_on_save = {
         timeout_ms = 5000,

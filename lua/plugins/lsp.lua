@@ -76,6 +76,12 @@ return {
       on_attach = on_attach,
     })
 
+    -- configure gleam language server
+    lspconfig["gleam"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
     -- configure rust language server
     lspconfig["rust_analyzer"].setup({
       capabilities = capabilities,
@@ -98,6 +104,21 @@ return {
         "clangd",
         "--offset-encoding=utf-16",
       },
+    })
+
+    -- configure typescript language server
+    lspconfig["tsserver"].setup({
+      capabilities = capabilities,
+      -- on_attach = on_attach,
+      on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+        on_attach(client, bufnr)
+      end,
+    })
+
+    lspconfig["biome"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
     })
 
     -- dockerfile language server
