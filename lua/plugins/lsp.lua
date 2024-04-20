@@ -76,6 +76,35 @@ return {
       on_attach = on_attach,
     })
 
+    -- configure go language server
+    lspconfig["gopls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "go", "gomod", "gowork", "gotmpl" },
+      root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+      settings = {
+        gopls = {
+          completeUnimported = true,
+          usePlaceholders = true,
+          analyses = {
+            unusedparams = true,
+          },
+        },
+      },
+    })
+
+    -- configure astro language server
+    lspconfig["astro"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure toml language server
+    lspconfig["taplo"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
     -- configure gleam language server
     lspconfig["gleam"].setup({
       capabilities = capabilities,
@@ -94,6 +123,12 @@ return {
           },
         },
       },
+    })
+
+    -- configure pylyzer language server
+    lspconfig["pylsp"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
     })
 
     -- configure c/c++ language server

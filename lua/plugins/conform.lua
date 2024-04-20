@@ -10,6 +10,8 @@ return {
         reason = { "ocamformat" },
         gleam = { "gleam" },
         typescript = { "biome" },
+        toml = { "taplo" },
+        go = { "gofumpt", "goimports_reviser", "golines" },
       },
       format_on_save = {
         timeout_ms = 5000,
