@@ -31,8 +31,6 @@ return {
           end,
         },
         mapping = cmp.mapping.preset.insert({
-          ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-          ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
@@ -51,6 +49,26 @@ return {
               fallback()
             end
           end, { "i", "s" }),
+          ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+          ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+          -- ["<Tab>"] = cmp.mapping(function(fallback)
+          --   if cmp.visible() then
+          --     cmp.select_next_item()
+          --   elseif luasnip.expand_or_jumpable() then
+          --     luasnip.expand_or_jump()
+          --   else
+          --     fallback()
+          --   end
+          -- end, { "i", "s" }),
+          -- ["<S-Tab>"] = cmp.mapping(function(fallback)
+          --   if cmp.visible() then
+          --     cmp.select_prev_item()
+          --   elseif luasnip.jumpable(-1) then
+          --     luasnip.jump(-1)
+          --   else
+          --     fallback()
+          --   end
+          -- end, { "i", "s" }),
           ["<C-u>"] = cmp.mapping.scroll_docs(4), -- scroll up preview
           ["<C-d>"] = cmp.mapping.scroll_docs(-4), -- scroll down preview
           ["<C-Space>"] = cmp.mapping.complete({}), -- show completion suggestions
@@ -59,7 +77,6 @@ return {
         }),
         -- sources for autocompletion
         sources = cmp.config.sources({
-          { name = "copilot" }, -- Copilot suggestions
           { name = "nvim_lsp" }, -- lsp
           { name = "luasnip", max_item_count = 3 }, -- snippets
           { name = "buffer", max_item_count = 5 }, -- text within current buffer
