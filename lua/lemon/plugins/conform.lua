@@ -1,0 +1,22 @@
+return {
+	"stevearc/conform.nvim",
+	config = function()
+		require("conform").setup({
+			formatters_by_ft = {
+				lua = { "stylua" },
+				-- ocaml = { "ocamlformat" },
+				-- cpp = { "clang-format" },
+				-- c = { "clang-format" },
+				-- reason = { "ocamformat" },
+				-- gleam = { "gleam" },
+				-- typescript = { "biome" },
+				-- toml = { "taplo" },
+				-- go = { "gofumpt", "goimports_reviser", "golines" },
+			},
+			format_on_save = {
+				timeout_ms = 5000,
+				lsp_fallback = true,
+			},
+		})
+	end,
+}

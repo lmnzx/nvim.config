@@ -1,1 +1,2 @@
-require("core")
+require("lemon.core")
+require("lemon.lazy")
