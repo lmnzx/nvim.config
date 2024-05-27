@@ -8,10 +8,8 @@ return {
 				reason = { "ocamformat" },
 				cpp = { "clang-format" },
 				c = { "clang-format" },
-				-- gleam = { "gleam" },
-				-- typescript = { "biome" },
 				toml = { "taplo" },
-				-- go = { "gofumpt", "goimports_reviser", "golines" },
+				go = { "gofumpt", "goimports_reviser", "golines" },
 			},
 			format_on_save = {
 				timeout_ms = 5000,

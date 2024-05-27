@@ -31,6 +31,8 @@ return {
 				"zls",
 				"dockerls",
 				"ocamllsp",
+				"rust_analyzer",
+				"gopls",
 			},
 			automatic_installation = true,
 		})

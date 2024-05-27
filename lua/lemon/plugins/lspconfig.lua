@@ -15,8 +15,6 @@ return {
 
 		local keymap = vim.keymap
 
-		-- TODO: configure rust, elixir, ocaml, c++
-
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
@@ -116,6 +114,23 @@ return {
 					capabilities = capabilities,
 				})
 			end,
+			["gopls"] = function()
+				lspconfig["gopls"].setup({
+					capabilities = capabilities,
+					filetypes = { "go", "gomod", "gowork", "gotmpl" },
+					root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+					settings = {
+						gopls = {
+							completeUnimported = true,
+							usePlaceholders = true,
+							analyses = {
+								unusedparams = true,
+							},
+						},
+					},
+				})
+			end,
+			["rust_analyzer"] = function() end,
 			["lua_ls"] = function()
 				lspconfig["lua_ls"].setup({
 					capabilities = capabilities,
