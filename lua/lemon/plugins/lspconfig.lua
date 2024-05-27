@@ -15,7 +15,7 @@ return {
 
 		local keymap = vim.keymap
 
-		-- TODO: configure rust, elixir, ocaml, python, c++
+		-- TODO: configure rust, elixir, ocaml, c++
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -73,6 +73,46 @@ return {
 		mason_lspconfig.setup_handlers({
 			function(server_name)
 				lspconfig[server_name].setup({
+					capabilities = capabilities,
+				})
+			end,
+			["pylsp"] = function()
+				lspconfig["pylsp"].setup({
+					capabilities = capabilities,
+					filetypes = { "python" },
+				})
+			end,
+			["clangd"] = function()
+				lspconfig["clangd"].setup({
+					capabilities = capabilities,
+					cmd = {
+						"clangd",
+						"--offset-encoding=utf-16",
+					},
+				})
+			end,
+			["taplo"] = function()
+				lspconfig["taplo"].setup({
+					capabilities = capabilities,
+				})
+			end,
+			["jsonls"] = function()
+				lspconfig["jsonls"].setup({
+					capabilities = capabilities,
+				})
+			end,
+			["ocamllsp"] = function()
+				lspconfig["ocamllsp"].setup({
+					capabilities = capabilities,
+				})
+			end,
+			["zls"] = function()
+				lspconfig["zls"].setup({
+					capabilities = capabilities,
+				})
+			end,
+			["dockerls"] = function()
+				lspconfig["dockerls"].setup({
 					capabilities = capabilities,
 				})
 			end,

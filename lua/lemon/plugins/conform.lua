@@ -4,13 +4,13 @@ return {
 		require("conform").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
-				-- ocaml = { "ocamlformat" },
-				-- cpp = { "clang-format" },
-				-- c = { "clang-format" },
-				-- reason = { "ocamformat" },
+				ocaml = { "ocamlformat" },
+				reason = { "ocamformat" },
+				cpp = { "clang-format" },
+				c = { "clang-format" },
 				-- gleam = { "gleam" },
 				-- typescript = { "biome" },
-				-- toml = { "taplo" },
+				toml = { "taplo" },
 				-- go = { "gofumpt", "goimports_reviser", "golines" },
 			},
 			format_on_save = {

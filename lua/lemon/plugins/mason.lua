@@ -24,6 +24,13 @@ return {
 		mason_lspconfig.setup({
 			ensure_installed = {
 				"lua_ls",
+				"pylsp",
+				"clangd",
+				"taplo",
+				"jsonls",
+				"zls",
+				"dockerls",
+				"ocamllsp",
 			},
 			automatic_installation = true,
 		})
@@ -31,6 +38,8 @@ return {
 		mason_tool_installer.setup({
 			ensure_installed = {
 				"stylua",
+				"clang-format",
+				"ocamlformat",
 			},
 		})
 	end,
