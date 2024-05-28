@@ -15,7 +15,5 @@ return {
 			direction = "float",
 			autochdir = true,
 		})
-
-		vim.keymap.set("n", "<C-\\>", "<cmd>:ToggleTerm<CR>")
 	end,
 }
