@@ -24,9 +24,9 @@ return {
 		mason_lspconfig.setup({
 			ensure_installed = {
 				"lua_ls",
-				"pylsp",
 				"clangd",
 				"taplo",
+				"pyright",
 				"jsonls",
 				"zls",
 				"dockerls",
@@ -42,6 +42,7 @@ return {
 				"stylua",
 				"clang-format",
 				"ocamlformat",
+				"ruff",
 			},
 		})
 	end,
