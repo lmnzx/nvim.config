@@ -24,7 +24,10 @@ return {
 							["<C-x>"] = actions.delete_buffer,
 						},
 					},
-					file_ignore_patterns = {
+                    find_files = {
+                        hidden = true,
+                    },
+                    file_ignore_patterns = {
 						"node_modules",
 						"yarn.lock",
 						".git",
@@ -33,6 +36,7 @@ return {
 						"_opam",
 						".next",
 					},
+
 				},
 				extensions = {
 					["ui-select"] = {

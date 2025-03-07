@@ -13,23 +13,13 @@ return {
 			---@diagnostic disable: missing-fields
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = {
-					"bash",
 					"c",
-					"css",
-					"gleam",
-					"graphql",
-					"html",
-					"javascript",
+					"cpp",
+					"python",
 					"json",
 					"lua",
 					"markdown",
 					"ocaml",
-					"ocaml_interface",
-					"prisma",
-					"tsx",
-					"typescript",
-					"vim",
-					-- "yaml", This is currently borked see: https://github.com/ikatyang/tree-sitter-yaml/issues/53
 				},
 				sync_install = false,
 				highlight = {
