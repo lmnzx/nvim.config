@@ -8,12 +8,12 @@ return {
 						local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
 						local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
 						local filename = MiniStatusline.section_filename({ trunc_width = 140 })
-						local location = string.format('%d:%d', vim.fn.line('.'), vim.fn.line('$'))
+						local location = string.format("%d:%d", vim.fn.line("."), vim.fn.line("$"))
 
 						return MiniStatusline.combine_groups({
 							{ hl = mode_hl, strings = { mode } },
-							{ hl = "MiniStatuslineDevinfo", strings = {diagnostics } },
-							"%<", 
+							{ hl = "MiniStatuslineDevinfo", strings = { diagnostics } },
+							"%<",
 							{ hl = "MiniStatuslineFilename", strings = { filename } },
 							"%=",
 							{ hl = mode_hl, strings = { location } },
@@ -40,6 +40,7 @@ return {
 					},
 				},
 			})
+			require("mini.pairs").setup()
 		end,
 	},
 }
