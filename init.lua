@@ -31,6 +31,7 @@ vim.keymap.set("n", "<leader>se", "<C-w>=")
 vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>")
 vim.keymap.set("n", "<M-n>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<M-p>", "<cmd>cprev<CR>")
+vim.keymap.set("n", "-", "<cmd>Oil<CR>")
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
