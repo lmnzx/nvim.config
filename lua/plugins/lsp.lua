@@ -20,7 +20,7 @@ return {
 			require("lspconfig").lua_ls.setup({ capabilities = capabilities })
 			require("lspconfig").clangd.setup({ capabilities = capabilities })
 			require("lspconfig").ocamllsp.setup({ capabilities = capabilities })
-			require("lspconfig").pylyzer.setup({ capabilities = capabilities })
+			require("lspconfig").pyright.setup({ capabilities = capabilities })
 		end,
 	},
 
@@ -54,7 +54,7 @@ return {
 				c = { "clang-format" },
 				cpp = { "clang-format" },
 				ocaml = { "ocamlfmt" },
-				python = { "ruff" },
+				python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 			},
 			format_on_save = {
 				timeout_ms = 500,
