@@ -21,6 +21,24 @@ return {
 			require("lspconfig").clangd.setup({ capabilities = capabilities })
 			require("lspconfig").ocamllsp.setup({ capabilities = capabilities })
 			require("lspconfig").pyright.setup({ capabilities = capabilities })
+			require("lspconfig").gopls.setup({ capabilities = capabilities })
+			require("lspconfig").ols.setup({ capabilities = capabilities })
+		end,
+	},
+
+	-- lspsaga
+	{
+		"nvimdev/lspsaga.nvim",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"echasnovski/mini.icons",
+		},
+		config = function()
+			require("lspsaga").setup({
+				lightbulb = {
+					enable = false,
+				},
+			})
 		end,
 	},
 
@@ -55,6 +73,8 @@ return {
 				cpp = { "clang-format" },
 				ocaml = { "ocamlfmt" },
 				python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+				go = { "goimports", "gofmt" },
+				odin = { "odinfmt" },
 			},
 			format_on_save = {
 				timeout_ms = 500,
