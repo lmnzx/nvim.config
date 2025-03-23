@@ -13,6 +13,21 @@ return {
 					},
 				},
 			},
+			{
+				"j-hui/fidget.nvim",
+				opts = {
+					notification = {
+						window = {
+							winblend = 0,
+						},
+					},
+					progress = {
+						display = {
+							progress_icon = { "dots_negative" },
+						},
+					},
+				},
+			},
 		},
 		config = function()
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
@@ -23,6 +38,8 @@ return {
 			require("lspconfig").pyright.setup({ capabilities = capabilities })
 			require("lspconfig").gopls.setup({ capabilities = capabilities })
 			require("lspconfig").ols.setup({ capabilities = capabilities })
+			require("lspconfig").ts_ls.setup({ capabilities = capabilities })
+			require("lspconfig").rust_analyzer.setup({ capabilities = capabilities })
 		end,
 	},
 
@@ -75,6 +92,8 @@ return {
 				python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 				go = { "goimports", "gofmt" },
 				odin = { "odinfmt" },
+				typescript = { "biome" },
+				rust = { "rustfmt" },
 			},
 			format_on_save = {
 				timeout_ms = 500,

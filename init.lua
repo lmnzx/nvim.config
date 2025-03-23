@@ -39,6 +39,8 @@ vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>")
 vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>")
 vim.keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
+vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_next<CR>")
+vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",

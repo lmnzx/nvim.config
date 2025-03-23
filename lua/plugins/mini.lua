@@ -2,7 +2,8 @@ return {
 	{
 		"echasnovski/mini.nvim",
 		config = function()
-			require("mini.icons").setup(require("mini.statusline").setup({
+			require("mini.icons").setup()
+			require("mini.statusline").setup({
 				content = {
 					active = function()
 						local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
@@ -29,7 +30,7 @@ return {
 					end,
 				},
 				use_icons = false,
-			}))
+			})
 			require("mini.git").setup()
 			require("mini.diff").setup({
 				view = {
