@@ -36,7 +36,7 @@ require("lazy").setup({
 						return {
 							Visual = { bg = colors.overlay0 },
 							LineNr = { fg = colors.overlay2 },
-							CursorLine = { bg = colors.overlay0 },
+							CursorLine = { bg = colors.surface2 },
 							MiniStatuslineFilename = { bg = "none" },
 						}
 					end,

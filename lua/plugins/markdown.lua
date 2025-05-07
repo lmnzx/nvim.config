@@ -13,6 +13,9 @@ return {
 			completions = { blink = { enabled = true } },
 			code = {
 				sign = false,
+				disable_background = true,
+				language_icon = false,
+				language_name = false,
 			},
 			heading = {
 				sign = false,
