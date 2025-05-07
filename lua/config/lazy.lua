@@ -28,6 +28,24 @@ require("lazy").setup({
 		{
 			"catppuccin/nvim",
 			config = function()
+				require("catppuccin").setup({
+					flavour = "mocha",
+					transparent_background = true,
+					term_colors = true,
+					custom_highlights = function(colors)
+						return {
+							Visual = { bg = colors.overlay0 },
+							LineNr = { fg = colors.overlay2 },
+							CursorLine = { bg = colors.overlay0 },
+							MiniStatuslineFilename = { bg = "none" },
+						}
+					end,
+					integrations = {
+						mini = {
+							enabled = true,
+						},
+					},
+				})
 				vim.cmd.colorscheme("catppuccin-mocha")
 			end,
 		},
